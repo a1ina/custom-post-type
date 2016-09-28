@@ -1,0 +1,27 @@
+function create_news() {
+    register_post_type('news', array(
+      'labels' => array(
+        'name'            => __( 'News' ),
+        'singular_name'   => __( 'News' ),
+        'add_new'         => __( 'Add news' ),
+        'add_new_item'    => __( 'Add news item' ),
+        'edit'            => __( 'Edit news' ),
+        'edit_item'       => __( 'Edit news item' ),
+        'new_item'        => __( 'Single news' ),
+        'all_items'       => __( 'All news' ),
+        'view'            => __( 'View news' ),
+        'view_item'       => __( 'View single news' ),
+        'search_items'    => __( 'Search news' ),
+        'not_found'       => __( 'News not found' ),
+    ),
+    'public' => true, // show in admin panel?
+    'menu_position' => 5,
+    'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+    'taxonomies' => array( '' ),
+    'has_archive' => true,
+    'capability_type' => 'post',
+    'menu_icon'   => 'dashicons-admin-site',
+    'rewrite' => array('slug' => 'news'),
+    ));
+}
+add_action( 'init', 'create_news' );
